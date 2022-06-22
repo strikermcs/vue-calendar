@@ -1,17 +1,8 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
-import vuetify from './plugins/vuetify';
-import VueTextareaAutosize from 'vue-textarea-autosize'
+import vuetify from './plugins/vuetify'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
-
-Vue.use(VueTextareaAutosize);
-
-Vue.config.productionTip = false
-
 
 firebase.initializeApp({
     apiKey: "AIzaSyBbCkSyzlxi00xQx3PcalPJWJELtm7FpMk",
@@ -27,9 +18,7 @@ firebase.initializeApp({
 
 export const db = firebase.firestore(); 
 
-new Vue({
-  router,
-  store,
-  vuetify,
-  render: h => h(App)
-}).$mount('#app')
+const app = createApp(App)
+
+app.use(vuetify)
+app.mount('#app')
