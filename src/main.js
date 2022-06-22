@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
+import VCalendar from 'v-calendar'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import 'v-calendar/dist/style.css'
 
 firebase.initializeApp({
     apiKey: "AIzaSyBbCkSyzlxi00xQx3PcalPJWJELtm7FpMk",
@@ -21,4 +23,5 @@ export const db = firebase.firestore();
 const app = createApp(App)
 
 app.use(vuetify)
+app.use(VCalendar, {})
 app.mount('#app')

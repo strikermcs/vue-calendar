@@ -1,4 +1,4 @@
-ck<template>
+<template>
   <v-row class="fill-height">
     <v-col>
       <v-sheet height="64">
@@ -82,6 +82,7 @@ ck<template>
       <!--Диалоговое окно -->
       <v-sheet height="600">
         <v-calendar
+          is-expanded
           ref="calendar"
           v-model="focus"
           color="primary"
@@ -112,14 +113,14 @@ ck<template>
                 {{ selectedEvent.details }}
               </form>
               <form v-else>
-                <textarea-autosize
+                <textarea
                   v-model="selectedEvent.details"
                   type="text"
                   style="width: 100%"
                   :min-height="100"
                   placeholder="Добавьте запись"
                 >
-                </textarea-autosize>
+                </textarea>
               </form>
             </v-card-text>
             <v-card-actions>
@@ -145,7 +146,7 @@ ck<template>
 </template>
 
 <script>
-import { db } from "@/main";
+import { db } from "../main";
 
 export default {
   data: () => ({
